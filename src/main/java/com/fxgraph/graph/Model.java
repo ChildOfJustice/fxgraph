@@ -24,7 +24,7 @@ public class Model implements Serializable {
 	private transient ObservableList<IEdge> removedEdges;
 
 	public Model() {
-		root = new AbstractCell() {
+		root = new AbstractCell("") {
 			@Override
 			public Region getGraphic(Graph graph) {
 				return null;
@@ -83,6 +83,18 @@ public class Model implements Serializable {
 
 	public ObservableList<IEdge> getAllEdges() {
 		return allEdges;
+	}
+
+	public Model copy(){
+		Model copiedModel = new Model();
+		for (ICell cell : getAllCells()) {
+			copiedModel.addCell(cell);
+		}
+		for (IEdge edge : getAllEdges()) {
+			copiedModel.addEdge(edge);
+		}
+		copiedModel.endUpdate();
+		return copiedModel;
 	}
 
 	public void addCell(ICell cell) {

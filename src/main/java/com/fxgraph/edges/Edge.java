@@ -23,6 +23,11 @@ public class Edge extends AbstractEdge {
 		textProperty = new SimpleStringProperty();
 	}
 
+	public Edge(ICell source, ICell target, boolean isDirected, String weight) {
+		super(source, target, isDirected);
+		textProperty = new SimpleStringProperty(weight);
+	}
+
 	@Override
 	public EdgeGraphic getGraphic(Graph graph) {
 		return new EdgeGraphic(graph, this, textProperty);

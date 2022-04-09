@@ -38,4 +38,6 @@ public interface ICell extends IGraphNode {
 		return graphic.heightProperty();
 	}
 
+	String getCellName();
+
 }

@@ -42,14 +42,14 @@ public class BasicGraphDemo extends Application {
 
 	private void populateGraph(Graph graph) {
 		final Model model = graph.getModel();
-		graph.beginUpdate();
-		final ICell cellA = new RectangleCell();
-		final ICell cellB = new RectangleCell();
-		final ICell cellC = new RectangleCell();
-		final ICell cellD = new RectangleCell();
-		final ICell cellE = new RectangleCell();
-		final ICell cellF = new RectangleCell();
-		final ICell cellG = new RectangleCell();
+		graph.clear();
+		final ICell cellA = new RectangleCell("A");
+		final ICell cellB = new RectangleCell("B");
+		final ICell cellC = new RectangleCell("C");
+		final ICell cellD = new RectangleCell("D");
+		final ICell cellE = new RectangleCell("E");
+		final ICell cellF = new RectangleCell("F");
+		final ICell cellG = new RectangleCell("G");
 
 		model.addCell(cellA);
 		model.addCell(cellB);
@@ -83,6 +83,18 @@ public class BasicGraphDemo extends Application {
 
 		model.addEdge(cellB, cellD);
 
-		graph.endUpdate();
+		graph.update();
+
+//        model.clear();
+
+        model.removeCell(cellA);
+        graph.update();
+
+//        Platform.runLater(() -> {
+//            // Display the graph
+////            stage.setScene(new Scene(new BorderPane(graph.getCanvas())));
+////            stage.show();
+//            graph.update();
+//        });
 	}
 }

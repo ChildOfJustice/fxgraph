@@ -29,7 +29,7 @@ public class SequenceDiagram extends Graph {
 	public void addActor(IActorCell actor) {
 		actors.add(actor);
 		getModel().addCell(actor);
-		endUpdate();
+		update();
 	}
 
 	public void addMessage(IActorCell source, IActorCell target, String name) {
@@ -39,7 +39,7 @@ public class SequenceDiagram extends Graph {
 	public void addMessage(IMessageEdge edge) {
 		messages.add(edge);
 		getModel().addEdge(edge);
-		endUpdate();
+		update();
 	}
 	
 	public void layout() {
@@ -102,6 +102,7 @@ public class SequenceDiagram extends Graph {
 		}
 		
 		public ActorCell(String name, DoubleProperty lifeLineLength) {
+			super(name);
 			this.name = name;
 			this.lifeLineLength = lifeLineLength;
 		}

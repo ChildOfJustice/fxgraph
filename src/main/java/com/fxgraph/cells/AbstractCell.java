@@ -7,8 +7,14 @@ import java.util.List;
 
 public abstract class AbstractCell implements ICell {
 
+	private final String cellName;
+	public AbstractCell(String cellName){
+		this.cellName = cellName;
+	}
+
 	private final List<ICell> children = new ArrayList<>();
 	private final List<ICell> parents = new ArrayList<>();
+
 
 	@Override
 	public void addCellChild(ICell cell) {
@@ -35,4 +41,8 @@ public abstract class AbstractCell implements ICell {
 		children.remove(cell);
 	}
 
+	@Override
+	public String getCellName(){
+		return cellName;
+	}
 }

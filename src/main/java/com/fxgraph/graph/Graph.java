@@ -88,11 +88,11 @@ public class Graph {
 		return model;
 	}
 
-	public void beginUpdate() {
+	public void clear() {
 		getCanvas().getChildren().clear();
 	}
 
-	public void endUpdate() {
+	public void update() {
 		// add components to graph pane
 		addEdges(model.getAddedEdges());
 		addCells(model.getAddedCells());
@@ -194,5 +194,9 @@ public class Graph {
 
 	public BooleanProperty getUseViewportGestures() {
 		return useViewportGestures;
+	}
+
+	public Graph copy(){
+		return new Graph(getModel().copy());
 	}
 }

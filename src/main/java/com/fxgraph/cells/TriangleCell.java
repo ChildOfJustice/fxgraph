@@ -9,7 +9,8 @@ import javafx.scene.transform.Scale;
 
 public class TriangleCell extends AbstractCell {
 
-	public TriangleCell() {
+	public TriangleCell(String cellName) {
+		super(cellName);
 	}
 
 	@Override
